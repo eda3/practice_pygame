@@ -7,6 +7,7 @@ pygame.init()
 SURFACE = pygame.display.set_mode((400, 300))
 pygame.display.set_caption("Just Window")
 
+
 def main():
     """ main routine """
     while True:
@@ -18,6 +19,7 @@ def main():
                 sys.exit
 
         pygame.display.update()
+
 
 if __name__ == "__main__":
     main()
