@@ -6,6 +6,7 @@ from pygame.locals import QUIT
 pygame.init()
 SURFACE = pygame.display.set_mode((400, 300))
 
+
 def main():
     """ main routine """
     sysfont = pygame.font.SysFont(None, 36)
@@ -17,7 +18,9 @@ def main():
 
         counter += 1
         SURFACE.fill((0, 0, 0))
-        count_image = sysfont.render("count is {}".format(counter), True, (225, 225, 225))
+        color = (225, 225, 225)
+        message = "count is {}".format(counter)
+        count_image = sysfont.render(message, True, color)
         SURFACE.blit(count_image, (50, 50))
         pygame.display.update()
 
