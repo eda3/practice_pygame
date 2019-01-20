@@ -10,12 +10,19 @@ FPSCLOCK = pygame.time.Clock()
 
 def main():
     """ main routine """
-    for event in pygame.event.get():
-        if event.type == QUIT:
-            pygame.quit()
-            sys.exit()
+    while True:
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
 
-    SURFACE.fill((255, 255, 255))
+        SURFACE.fill((255, 255, 255))
+
+        # Red:fill
+        pygame.draw.circle(SURFACE, (255, 0, 0), (50, 50), 20)
+
+        pygame.display.update()
+        FPSCLOCK.tick(3)
 
 
 if __name__ == "__main__":
