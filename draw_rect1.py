@@ -24,6 +24,9 @@ def main():
         # Red:Rectangle(line weight 3)
         pygame.draw.rect(SURFACE, (255, 0, 0), (150, 10, 100, 30), 3)
 
+        # Green:Rectangle
+        pygame.draw.rect(SURFACE, (0, 255, 0), ((100, 80), (80, 50)))
+
         pygame.display.update()
         FPSCLOCK.tick(3)
 
