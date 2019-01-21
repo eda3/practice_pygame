@@ -27,6 +27,10 @@ def main():
         # Green:Rectangle
         pygame.draw.rect(SURFACE, (0, 255, 0), ((100, 80), (80, 50)))
 
+        # Blue:Rectangle,Rect Object
+        rect0 = Rect(200, 60, 140, 80)
+        pygame.draw.rect(SURFACE, (0, 0, 255), rect0)
+
         pygame.display.update()
         FPSCLOCK.tick(3)
 
