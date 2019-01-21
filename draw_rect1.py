@@ -19,7 +19,7 @@ def main():
         SURFACE.fill((255, 255, 255))
 
         # Red:Rectangle(fill)
-        pygame.draw.circle(SURFACE, (255, 0, 0), (50, 50), 20)
+        pygame.draw.rect(SURFACE, (255, 0, 0), (10, 20, 100, 50))
 
         pygame.display.update()
         FPSCLOCK.tick(3)
