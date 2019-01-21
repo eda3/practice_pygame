@@ -18,7 +18,7 @@ def main():
 
         SURFACE.fill((255, 255, 255))
 
-        # Red:fill
+        # Red:Rectangle(fill)
         pygame.draw.circle(SURFACE, (255, 0, 0), (50, 50), 20)
 
         pygame.display.update()
