@@ -1,7 +1,7 @@
 """ draw_image_subregion2.py """
 import sys
 import pygame
-from pygame.locals import QUIT, Rect
+from pygame.locals import QUIT, Rect, KEYDOWN, K_LEFT, K_RIGHT
 from pygame import Surface
 
 pygame.init()
@@ -19,11 +19,17 @@ def main():
         images.append(image)
 
     counter = 0
+    pos_x = 100
     while True:
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
                 sys.exit
+            elif event.type == KEYDOWN:
+                if event.key == K_LEFT:
+                    pos_x -= 5
+                elif event.key == K_RIGHT:
+                    pos_x += 5
 
         SURFACE.fill((255, 255, 255))
 
@@ -32,6 +38,8 @@ def main():
         SURFACE.blit(images[counter % 2 + 4], (150, 50))
         SURFACE.blit(images[counter % 2 + 6], (200, 50))
         counter += 1
+
+        SURFACE.blit(images[8], (pos_x, 150))
 
         pygame.display.update()
         FPSCLOCK.tick(5)
