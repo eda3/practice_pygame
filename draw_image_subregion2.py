@@ -1,9 +1,10 @@
+""" draw_image_subregion2.py """
 import sys
 import pygame
 from pygame.locals import QUIT
 
 pygame.init()
-SURFACE = pygame.display.set_mode((400, 300))
+SURFACE = pygame.display.set_mode((300, 200))
 FPSCLOCK = pygame.time.Clock()
 
 
