@@ -1,9 +1,9 @@
-""" draw_image1.py """
+""" draw_image_subregion1.py """
 import sys
 
 import pygame
 from pygame import Surface
-from pygame.locals import QUIT
+from pygame.locals import QUIT, Rect
 
 pygame.init()
 SURFACE = pygame.display.set_mode((400, 300))  # type: Surface
@@ -22,8 +22,9 @@ def main():
 
         SURFACE.fill((255, 255, 255))
 
-        # draw a logo at the (20, 50) upper left corner
+        # draw a logo at the (0, 0) upper left corner
         SURFACE.blit(logo, (0, 0))
+        SURFACE.blit(logo, (250, 50), Rect(50, 50, 100, 100))
 
         pygame.display.update()
         FPSCLOCK.tick(30)
