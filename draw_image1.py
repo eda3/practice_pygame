@@ -12,7 +12,7 @@ FPSCLOCK = pygame.time.Clock()
 
 def main():
     """ main routine """
-    logo = pygame.image.load("assets/pythonlogo.png")  # type: Surface
+    logo = pygame.image.load("./assets/pythonlogo.png")  # type: Surface
 
     while True:
         for event in pygame.event.get():
@@ -23,7 +23,10 @@ def main():
         SURFACE.fill((255, 255, 255))
 
         # draw a logo at the (20, 50) upper left corner
+        SURFACE.blit(logo, (0, 0))
+
         pygame.display.update()
+        FPSCLOCK.tick(30)
 
 
 if __name__ == "__main__":
