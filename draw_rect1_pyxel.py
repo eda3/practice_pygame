@@ -13,6 +13,17 @@ class App:
             pyxel.quit()
 
     def draw(self):
+
+        # Red:Rectangle(fill)
+
+        # Red:Rectangle(line weight 3)
+
+        # Green:Rectangle
+
+        # Blue:Rectangle,Rect Object
+
+        # Yellow:Rectangle,Rect Object
+
         pass
 
 
