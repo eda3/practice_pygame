@@ -16,7 +16,6 @@ class Ship:
         self._pos_y = 250
         self._image = None
         self.load_ship_image()
-
         self._height = self._image.get_height()
 
     def load_ship_image(self):
