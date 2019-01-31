@@ -7,7 +7,7 @@ from pygame import Surface
 
 pygame.init()
 pygame.key.set_repeat(5, 5)
-SURFACE = pygame.display.set_mode((800, 600))  # type:Surface
+SURFACE: Surface = pygame.display.set_mode((800, 600))
 FPSCLOCK = pygame.time.Clock()
 
 
