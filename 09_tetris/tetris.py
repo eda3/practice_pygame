@@ -103,8 +103,8 @@ class Block:
     def __init__(self, count):
         pass
 
-    def update(selfself, count):
-        pass
+    def update(self, count):
+
 
     def draw(self):
         pass
