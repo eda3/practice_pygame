@@ -95,6 +95,37 @@ BLOCK_DATA = (
 )
 
 
+class Block:
+    def __init__(self, count):
+        pass
+
+    def update(selfself, count):
+        pass
+
+    def draw(self):
+        pass
+
+
+def erase_line(self):
+    """ erase the line filled with rows"""
+    pass
+
+
+def is_game_over():
+    """ whether the game is over or not"""
+    pass
+
+
+def go_next_block(count):
+    """ switch back to the next block """
+    pass
+
+
+def is_overlapped(xpos, ypos, turn):
+    """ whether the block collides with a wall or another block"""
+    pass
+
+
 def main():
     pass
 
