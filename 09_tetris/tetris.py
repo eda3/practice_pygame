@@ -2,6 +2,9 @@ import sys
 from random import randint
 import pygame
 from pygame.locals import QUIT, KEYDOWN, K_LEFT, K_RIGHT, K_DOWN, K_SPACE
+from pygame.rect import Rect
+from pygame.surface import Surface
+
 BLOCK_DATA = (
     (
         (0, 0, 1,
@@ -141,7 +144,19 @@ NEXT_BLOCK = None
 
 
 def main():
-    pass
+    global INTERVAL
+    count = 0
+    score = 0
+    game_over = False
+    smallfont = pygame.font.SysFont(None, 36)
+    largefont = pygame.font.SysFont(None, 72)
+
+    s = "GAME OVER!!"
+    message_over: Surface = largefont.render(s, True, (0, 255, 255))
+    message_rect: Rect = message_over.get_rect()
+    message_rect.center = (300, 300)
+
+    go_next_block(INTERVAL)
 
 
 if __name__ == '__main__':
