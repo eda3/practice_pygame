@@ -168,6 +168,19 @@ def main():
     for index in range(WIDTH):
         FIELD[HEIGHT - 1][index] = 8
 
+    while True:
+
+
+        game_over = is_game_over()
+        if not game_over:
+            count += 5
+            if count % 1000 == 0:
+                INTERVAL = max(1, INTERVAL - 2)
+            erased = BLOCK.update(count)
+
+            if erased > 0:
+                score += (2 ** erased) * 100
+
 
 if __name__ == '__main__':
     main()
