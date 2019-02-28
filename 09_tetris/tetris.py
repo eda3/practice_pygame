@@ -1,3 +1,4 @@
+import pprint
 import sys
 from random import randint
 import pygame
@@ -157,6 +158,11 @@ def main():
     message_rect.center = (300, 300)
 
     go_next_block(INTERVAL)
+
+    # initialize left and right walls
+    for ypos in range(HEIGHT):
+        for xpos in range(WIDTH):
+            FIELD[ypos][xpos] = 8 if xpos == 0 or xpos == WIDTH - 1 else 0
 
 
 if __name__ == '__main__':
