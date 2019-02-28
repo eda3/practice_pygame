@@ -111,7 +111,7 @@ class Block:
         pass
 
 
-def erase_line(self):
+def erase_line():
     """ erase the line filled with rows"""
     pass
 
