@@ -170,6 +170,13 @@ def main():
 
     while True:
 
+        key = None
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            elif event.type == KEYDOWN:
+                key = event.key
 
         game_over = is_game_over()
         if not game_over:
@@ -180,6 +187,17 @@ def main():
 
             if erased > 0:
                 score += (2 ** erased) * 100
+
+            # key event
+            next_x, next_y, next_t = BLOCK.xpos, BLOCK.ypos, BLOCK.turn
+            if key == K_SPACE:
+                next_t = (next_t + 1) % 4
+            elif key == K_RIGHT:
+                next_x += 1
+            elif key == K_LEFT:
+                next_x -= 1
+            elif key == K_DOWN:
+                next_y += 1
 
 
 if __name__ == '__main__':
