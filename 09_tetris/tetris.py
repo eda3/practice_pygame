@@ -199,6 +199,12 @@ def main():
             elif key == K_DOWN:
                 next_y += 1
 
+            if not is_overlapped(next_x, next_y, next_t):
+                BLOCK.xpos = next_x
+                BLOCK.ypos = next_y
+                BLOCK.turn = next_t
+                BLOCK.data = BLOCK.type[BLOCK.turn]
+
 
 if __name__ == '__main__':
     main()
