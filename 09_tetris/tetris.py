@@ -102,10 +102,33 @@ BLOCK_DATA = (
 
 class Block:
     def __init__(self, count):
-        pass
+        self.turn = randint(0, 3)
+        self.type = BLOCK_DATA[randint(0, 6)]
+        self.data = self.type[self.turn]
+        self.size = int(sqrt(len(self.data)))
+        self.xpos = randint(2, 8 - self.size)
+        self.ypos = 1 - self.size
+        self.fire = count + INTERVAL
 
     def update(self, count):
+        # update status of block(return number of erased lines)
+        erased = 0
+        if is_overlapped(self.xpos, self.ypos + 1, self.turn):
+            for y_offset in range(BLOCK.size):
+                for x_offset in range(BLOCK.size):
+                    if 0 <= self.xpos + x_offset < WIDTH and 0 <= self.ypos + y_offset < HEIGHT:
+                        val = BLOCK.data[y_offset * BLOCK.size + x_offset]
 
+                        if val != 0:
+                            FIELD[self.ypos + y_offset][self.xpos + x_offset] = val
+
+        erased = erase_line()
+        go_next_block(count)
+
+        if self.fire < count:
+            self.fire = count + INTERVAL
+            self.ypos += 1
+        return erased
 
     def draw(self):
         pass
@@ -113,7 +136,16 @@ class Block:
 
 def erase_line():
     """ erase the line filled with rows"""
-    pass
+    erased = 0
+    ypos = 20
+    while ypos >= 0:
+        if all(FIELD[ypos]):
+            erased += 1
+            del FIELD[ypos]
+            FIELD.insert(0, [8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8])
+        else:
+            ypos -= 1
+    return erased
 
 
 def is_game_over():
@@ -123,7 +155,9 @@ def is_game_over():
 
 def go_next_block(count):
     """ switch back to the next block """
-    pass
+    global BLOCK, NEXT_BLOCK
+    BLOCK = NEXT_BLOCK if NEXT_BLOCK is not None else Block(count)
+    NEXT_BLOCK = Block(count)
 
 
 def is_overlapped(xpos, ypos, turn):
