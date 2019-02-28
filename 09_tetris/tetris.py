@@ -205,6 +205,16 @@ def main():
                 BLOCK.turn = next_t
                 BLOCK.data = BLOCK.type[BLOCK.turn]
 
+        # draw the whole and falling block
+        SURFACE.fill((0, 0, 0))
+        for ypos in range(HEIGHT):
+            for xpos in range(WIDTH):
+                val = FIELD[ypos][xpos]
+                x_tmp = xpos * 25 + 25
+                y_tmp = ypos * 25 + 25
+                pygame.draw.rect(SURFACE, COLORS[val], (x_tmp, y_tmp, 24, 24))
+        BLOCK.draw()
+
 
 if __name__ == '__main__':
     main()
