@@ -164,6 +164,10 @@ def main():
         for xpos in range(WIDTH):
             FIELD[ypos][xpos] = 8 if xpos == 0 or xpos == WIDTH - 1 else 0
 
+    # initialize bottom walls
+    for index in range(WIDTH):
+        FIELD[HEIGHT - 1][index] = 8
+
 
 if __name__ == '__main__':
     main()
