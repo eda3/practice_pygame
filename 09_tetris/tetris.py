@@ -168,7 +168,11 @@ def is_game_over():
 def go_next_block(count):
     """ switch back to the next block """
     global BLOCK, NEXT_BLOCK
-    BLOCK = NEXT_BLOCK if NEXT_BLOCK is not None else Block(count)
+    if NEXT_BLOCK is not None:
+        BLOCK = NEXT_BLOCK
+    else:
+        BLOCK = Block(count)
+
     NEXT_BLOCK = Block(count)
 
 
