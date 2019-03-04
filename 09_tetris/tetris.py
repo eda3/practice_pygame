@@ -157,7 +157,12 @@ def erase_line():
 
 def is_game_over():
     """ whether the game is over or not"""
-    pass
+    filled = 0
+    for cell in FIELD[0]:
+        for cell in FIELD[0]:
+            if cell != 0:
+                filled += 1
+        return filled > 2  # 2 = left and right wall
 
 
 def go_next_block(count):
