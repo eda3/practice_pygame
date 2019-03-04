@@ -131,7 +131,14 @@ class Block:
         return erased
 
     def draw(self):
-        pass
+        for index in range(len(self.data)):
+            xpos = index % self.size
+            ypos = index // self.size
+            val = self.data[index]
+            if 0 <= ypos + self.ypos < HEIGHT and 0 <= xpos + self.xpos < WIDTH and val != 0:
+                x_pos = 25 + (xpos + self.xpos) * 25
+                y_pos = 25 + (ypos + self.ypos) * 25
+                pygame.draw.rect(SURFACE, COLORS[val], (x_pos, y_pos, 24, 24))
 
 
 def erase_line():
@@ -249,6 +256,9 @@ def main():
                 y_tmp = ypos * 25 + 25
                 pygame.draw.rect(SURFACE, COLORS[val], (x_tmp, y_tmp, 24, 24))
         BLOCK.draw()
+
+        pygame.display.update()
+        FPSCLOCK.tick(15)
 
 
 if __name__ == '__main__':
