@@ -178,7 +178,16 @@ def go_next_block(count):
 
 def is_overlapped(xpos, ypos, turn):
     """ whether the block collides with a wall or another block"""
-    pass
+    data = BLOCK.type[turn]
+    for y_offset in range(BLOCK.size):
+        for x_offset in range(BLOCK.size):
+            if 0 <= xpos + x_offset < WIDTH and 0 <= ypos + y_offset < HEIGHT:
+                data_index = y_offset * BLOCK.size + x_offset
+                field_y = ypos + y_offset
+                field_x = xpos + x_offset
+                if data[data_index] != 0 and FIELD[field_y][field_x] != 0:
+                    return True
+    return False
 
 
 pygame.init()
