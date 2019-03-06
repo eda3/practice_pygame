@@ -122,8 +122,8 @@ class Block:
                         if val != 0:
                             FIELD[self.ypos + y_offset][self.xpos + x_offset] = val
 
-        erased = erase_line()
-        go_next_block(count)
+            erased = erase_line()
+            go_next_block(count)
 
         if self.fire < count:
             self.fire = count + INTERVAL
