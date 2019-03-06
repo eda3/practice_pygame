@@ -275,6 +275,14 @@ def main():
                 pygame.draw.rect(SURFACE, COLORS[val], (x_tmp, y_tmp, 24, 24))
         BLOCK.draw()
 
+        # draw score
+        score_str = str(score).zfill(6)
+        score_image = smallfont.render(score_str, True, (0, 255, 0))
+        SURFACE.blit(score_image, (500, 30))
+
+        if game_over:
+            SURFACE.blit(message_over, message_rect)
+
         pygame.display.update()
         FPSCLOCK.tick(15)
 
